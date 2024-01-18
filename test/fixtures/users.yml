@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  coordination: MyString
+  telephone: MyString
+  email: MyString
+  company: MyString
+  cooperator: false
+
+two:
+  name: MyString
+  coordination: MyString
+  telephone: MyString
+  email: MyString
+  company: MyString
+  cooperator: false
