@@ -1,3 +1,23 @@
-
-<h4>Name: <%= @user.name%></h4>
-<h4>Email: <%= @user.email%></h4>
+<h4>User information</h4>
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Coordination</th>
+            <th>Telephone</th>
+            <th>email</th>
+            <th>Company</th>
+            <th>Cooperator</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <th><%= @user.name%></th>
+                <th><%= @user.coordination%></th>
+                <th><%= @user.telephone%></th>
+                <th><%=@user.email%></th>
+                <th><%= @user.company%></th>
+                <th><%=@user.cooperator%></th>
+            </tr>
+    </tbody>
+</table>
