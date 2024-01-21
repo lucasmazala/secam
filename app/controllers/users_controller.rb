@@ -22,6 +22,21 @@ class UsersController < ApplicationController
       render :new, status: :unprocessable_entity # the fields will be still filled out
     end
   end
+
+  def edit #just build the form
+    @user = User.find(user_params)
+  end
+
+  def update # fill out the form with data. Same thing occurs in new and create 
+    @user = User.find(user_params)
+
+    if @user.update(user_params)
+      redirect_to @user 
+    else 
+      render :edit, status: :unprocessable_entity
+    end 
+  end
+
   private 
     #strong parameters for safety
     def user_params 
