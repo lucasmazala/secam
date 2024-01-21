@@ -1,0 +1,16 @@
+<h1>New User</h1>
+<!--using devise for creating our form-->
+<%= simple_form_for @user do |f|%>
+    <%= f.input :name %>
+    <%= f.input :coordination %>
+    <%= f.input :telephone %>
+    <%= f.input :email %>
+    <%= f.input :company %>
+    <%= f.input :cooperator %>
+    <br>
+    <p>
+    <%= f.button :submit, class:"btn btn-primary" %>
+    <%= link_to "Back", root_path, class: "btn btn-secondary"%>
+    </p>
+<%end%>
+
