@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  
   def new 
     @user = User.new
     end
@@ -23,12 +24,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit #just build the form
-    @user = User.find(user_params)
+
+  def edit # Fetches the user from the db and saves it in @user.    
+    @user = User.find(params[:id])
   end
 
-  def update # fill out the form with data. Same thing occurs in new and create 
-    @user = User.find(user_params)
+  def update # fill out the form with data and try to save. Similar thing occurs in create 
+    @user = User.find(params[:id])
 
     if @user.update(user_params)
       redirect_to @user 
@@ -37,10 +39,11 @@ class UsersController < ApplicationController
     end 
   end
 
+
   private 
     #strong parameters for safety
     def user_params 
-      params.require(:user).permit(:name, :coordiantion, :telephone, :email, :company, :cooperator)
+      params.require(:user).permit(:name, :coordination, :telephone, :email, :company, :cooperator)
     end
 
 end
