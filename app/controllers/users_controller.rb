@@ -40,6 +40,13 @@ class UsersController < ApplicationController
   end
 
 
+  def destroy 
+    @user = User.find(params[:id])
+    @user.destroy 
+
+    redirect_to root_path, status: :see_other
+  end
+
   private 
     #strong parameters for safety
     def user_params 
