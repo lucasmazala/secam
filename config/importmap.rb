@@ -6,7 +6,7 @@ pin "@hotwired/stimulus", to: "stimulus.min.js"
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
 pin_all_from "app/javascript/controllers", under: "controllers"
 
-# These two pins below need to be enable for the normal working of destroy action in the View.
-#Solution found on https://www.youtube.com/watch?v=tSu8xF0A2ek
+# These two pins below need to be enable for the normal working of the destroy action in the View.
+# Solution found on https://www.youtube.com/watch?v=tSu8xF0A2ek
 pin 'bootstrap', to: 'https://ga.jspm.io/npm:bootstrap@5.1.3/dist/js/bootstrap.esm.js'  
 pin "@popperjs/core", to: "https://unpkg.com/@popperjs/core@2.11.6/dist/esm/index.js"  

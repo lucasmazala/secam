@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  priority: MyString
+  execution_date: 2024-01-28
+  execution_time: 2024-01-28 21:42:43
+  execution_place: MyString
+  registered_by: MyString
+  ticket_purpose: MyString
+  service_type: MyString
+  observation: MyText
+  service_progress: MyString
+  ticket_situation: MyString
+  service_evaluation: 1
+  suggestions_complaints: MyText
+
+two:
+  priority: MyString
+  execution_date: 2024-01-28
+  execution_time: 2024-01-28 21:42:43
+  execution_place: MyString
+  registered_by: MyString
+  ticket_purpose: MyString
+  service_type: MyString
+  observation: MyText
+  service_progress: MyString
+  ticket_situation: MyString
+  service_evaluation: 1
+  suggestions_complaints: MyText
