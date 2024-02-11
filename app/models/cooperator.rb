@@ -1,0 +1,2 @@
+class Cooperator < User
+end
