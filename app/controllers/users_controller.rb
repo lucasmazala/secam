@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   private 
     #strong parameters for safety
     def user_params 
-      params.require(:user).permit(:name, :coordination, :telephone, :email, :company, :cooperator)
+      params.require(:user).permit(:name, :coordination, :telephone, :email, :company)
     end
 
 end
