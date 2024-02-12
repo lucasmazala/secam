@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_11_194647) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_12_134741) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cooperators_tickets", id: false, force: :cascade do |t|
+    t.bigint "cooperator_id", null: false
+    t.bigint "ticket_id", null: false
+    t.index ["cooperator_id", "ticket_id"], name: "index_cooperators_tickets_on_cooperator_id_and_ticket_id"
+    t.index ["ticket_id", "cooperator_id"], name: "index_cooperators_tickets_on_ticket_id_and_cooperator_id"
+  end
 
   create_table "tickets", force: :cascade do |t|
     t.string "priority"
