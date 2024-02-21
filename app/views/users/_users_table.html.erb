@@ -6,8 +6,10 @@
             <th>Name</th>
             <th>Coordination</th>
             <th>Telephone</th>
-            <th>email</th>
+            <th>Email</th>
             <th>Company</th>
+            <th>Type</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +21,12 @@
                 <th><%= user.telephone%></th>
                 <th><%=user.email%></th>
                 <th><%= user.company%></th>
+                <th><%= user.type%></th>
+                <th><%= link_to "Destroy", user_path(user),
+    data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+    }, class: "btn btn-danger" %> </th>
             </tr>
         <% end %>
     </tbody>

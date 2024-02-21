@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
   root "users#index"
   resources :users
+
+  # We are using the users_controller for the cooperator and requester because we are using STI. 
+  # This way we can use one controller for all subclass. 
+  resources :cooperators, :controller => "users", :type => "Cooperator"
+  resources :requesters, :controller => "users", :type => "Requester"
+  #https://stackoverflow.com/questions/5246767/sti-one-controller?rq=3
   
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

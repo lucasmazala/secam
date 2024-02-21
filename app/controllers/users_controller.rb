@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   
   def index
-    @users = User.all
+    @users = User.all #fethces all kinds of Users 
+    #@users = User.where(:type => params[:type]) #fetches all users of a specific type.  
   end
 
 
@@ -12,11 +13,12 @@ class UsersController < ApplicationController
   
   def new 
     @user = User.new
-    end
+    @user.type = params[:type]      
+  end
     
   def create 
     @user = User.new(user_params)
-    
+            
     if @user.save 
       redirect_to @user
     else 
@@ -27,6 +29,7 @@ class UsersController < ApplicationController
 
   def edit # Fetches the user from the db and saves it in @user.    
     @user = User.find(params[:id])
+    
   end
 
   def update # fill out the form with data and try to save. Similar thing occurs in create 
@@ -50,7 +53,7 @@ class UsersController < ApplicationController
   private 
     #strong parameters for safety
     def user_params 
-      params.require(:user).permit(:name, :coordination, :telephone, :email, :company)
+      params.require(:user).permit(:name, :coordination, :telephone, :email, :company, :type)
     end
 
 end
