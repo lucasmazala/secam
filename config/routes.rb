@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root "users#index"
   resources :users
+  resources :tickets
 
   # We are using the users_controller for the cooperator and requester because we are using STI. 
   # This way we can use one controller for all subclass. 
