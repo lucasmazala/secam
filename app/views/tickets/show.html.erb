@@ -1,0 +1,51 @@
+<table class="table table-bordered table-dark table-hover caption-top">
+    <caption>List of Ticket</caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>requester_name</th>
+            <th>Priority</th>
+            <th>execution_date</th>
+            <th>execution_place</th>
+            <th>execution_time</th>
+            <th>register_by</th>
+            <th>ticket_purpose</th>
+            <th>service_type</th>
+            <th>cooperator_name</th>
+            <th>observation</th>
+            <th>service_progress</th>
+            <th>ticket_situation</th>
+            <th>service_evaluation</th>
+            <th>suggestions_complaints</th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <th><%= @ticket.id%></th>
+                <th><%= @ticket.requester.name%></th> 
+                <th><%= @ticket.priority%></th>
+                <th><%= @ticket.execution_date%></th>
+                <th><%= @ticket.execution_place%></th>
+                <th><%= @ticket.execution_time%></th>
+                <th><%= @ticket.registered_by%></th>
+                <th><%= @ticket.ticket_purpose%></th>
+                <th><%= @ticket.service_type%></th>
+                <th><% @ticket.cooperators.each do |cooperator|%> <!-- Another each to get the cooperators into the ticket-->
+                        <%= cooperator.name%>
+                    <%end%>
+                </th>
+                <th><%= @ticket.observation%></th>
+                <th><%= @ticket.service_progress%></th>
+                <th><%= @ticket.ticket_situation%></th>
+                <th><%= @ticket.service_evaluation%></th>
+                <th><%= @ticket.suggestions_complaints%></th>
+                </tr>
+    </tbody>
+</table>
+<%= link_to "Edit Ticket", edit_ticket_path(@ticket), class: "btn btn-primary"%>
+<%=link_to "Back to Tickets", tickets_path, class: "btn btn-secondary"%>
+<%= link_to "Destroy", ticket_path(@ticket),
+                        data: {
+                                turbo_method: :delete,
+                                turbo_confirm: "Are you sure?"
+                        }, class: "btn btn-danger" %>

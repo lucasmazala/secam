@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
             
     if @user.save 
-      redirect_to @user
+      redirect_to action: "index"
     else 
       render :new, status: :unprocessable_entity # the fields will be still filled out
     end

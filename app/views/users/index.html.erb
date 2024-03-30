@@ -1,7 +1,11 @@
-<%=render"users_table", users: @users%> <!--first "users:" is sent to partial. Second"@user" is coming from the controller with the data-->
+<br>
 <%= link_to "Create a New User", new_user_path, class:"btn btn-primary"%>
 
 <%= link_to "Create a New Requester", new_requester_path, class:"btn btn-primary"%>
 
 <%= link_to "Create a New Cooperator", new_cooperator_path, class:"btn btn-primary"%>
+
+<%= link_to "Ticket", tickets_path, class:"btn btn-primary"%>
+
+<%=render"users_table", users: @users%> <!--first "users:" is sent to partial. Second"@user" is coming from the controller with the data-->
 

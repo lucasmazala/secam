@@ -1,6 +1,7 @@
 class TicketsController < ApplicationController
   def index
-    @tickets = Ticket.all
+    #@tickets = Ticket.all
+    @tickets =  Ticket.includes(:requester, :cooperators )
   end
 
   
@@ -11,13 +12,14 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = Ticket.new
+    @ticket.cooperators.build # Instantiate a new Cooperator object associated with the @ticket object.  
   end
 
   def create 
     @ticket = Ticket.new(ticket_params)
 
     if @ticket.save 
-      redirect_to @ticket 
+      redirect_to action: "index"
     else 
       render_to :new, status: :unprocessable_entity 
     end
@@ -49,8 +51,8 @@ class TicketsController < ApplicationController
   private
   
     def ticket_params 
-      params.require(@ticket).permit(:priority, :execution_date, :execution_time, :execution_place, :register_by, 
+      params.require(:ticket).permit(:requester_id, :priority, :execution_date, :execution_time, :execution_place, :registered_by, 
                                     :ticket_purpose, :service_type, :observation, :service_progress, :ticket_situation, 
-                                    :service_evaluation, :suggestions_complaints, :requester_id)
+                                    :service_evaluation, :suggestions_complaints, cooperator_ids: []) #cooperator_ids: [] allows the ids passed indicating the cooperators. 
     end
 end

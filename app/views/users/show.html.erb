@@ -25,7 +25,7 @@
 </table>
 
 <%= link_to "Edit User", edit_user_path(@user), class: "btn btn-primary"%>
-<%= link_to "Back to Users", root_path, class: "btn btn-secondary"%>
+<%= link_to "Back to Users", users_path, class: "btn btn-secondary"%> <!--users_path returns to the index with all users-->
 <%= link_to "Destroy", user_path(@user),
     data: {
             turbo_method: :delete,

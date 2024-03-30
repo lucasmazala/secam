@@ -1,5 +1,6 @@
-<h1>Tickets#index</h1>
-<%@tickets.each  do |ticket|%>
-    <%=ticket.requester.name%>
-    <%=ticket.priority%>
-<%end%>
+<br>
+<%= link_to "New Ticket", new_ticket_path, class:"btn btn-primary"%>
+<%= link_to "Users", users_path, class:"btn btn-primary"%>
+<%= render "tickets_table", tickets: @tickets %>
+
+
