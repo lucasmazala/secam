@@ -1,0 +1,11 @@
+<% if notice.present?%>
+    <div class="alert alert-success" role="alert">
+        <%= notice%> <!--notice comes from notice in controller-->
+    </div>
+<% end %>
+
+<% if alert.present?%>
+    <div class="alert alert-danger" role="alert">
+        <%= alert%> <!--alert comes from alert in controller-->
+    </div>
+<% end %>

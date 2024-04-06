@@ -20,7 +20,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
             
     if @user.save 
-      redirect_to action: "index"
+      #redirect_to action: "index", notice: "User was successfully created" # if we want to go straight to all users 
+      redirect_to @user, notice: "User was successfully created"
     else 
       render :new, status: :unprocessable_entity # the fields will be still filled out
     end
@@ -36,7 +37,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update(user_params)
-      redirect_to @user 
+      redirect_to @user, notice: "User was successfully updated"
     else 
       render :edit, status: :unprocessable_entity
     end 
@@ -47,7 +48,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy 
 
-    redirect_to users_path, status: :see_other
+    redirect_to users_path, notice: "User was successfully destroyed"
   end
 
   private 

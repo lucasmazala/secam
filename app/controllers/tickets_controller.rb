@@ -19,7 +19,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
 
     if @ticket.save 
-      redirect_to action: "index"
+      redirect_to @ticket, notice: "Ticket was successfully created"
     else 
       render_to :new, status: :unprocessable_entity 
     end
@@ -34,7 +34,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
 
     if @ticket.update(ticket_params) 
-      redirect_to @ticket 
+      redirect_to @ticket, notice: "Ticket was successfully updated" 
     else 
       render_to :edit, status: :unprocessable_entity
     end 
@@ -45,7 +45,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     @ticket.destroy
     
-    redirect_to tickets_path, status: :see_other
+    redirect_to tickets_path, notice: "Ticket was successfully destroyed"
   end
 
   private
