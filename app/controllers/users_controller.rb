@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+
+  # https://stackoverflow.com/questions/65897519/rails-devise-authenticate-either-two-models
+  devise_group :user_requester, contains: [:user, :requester] # using group to authenticate two or more different models. Devise
+  before_action :authenticate_user_requester!   
+  
   
   def index
     @users = User.all #fethces all kinds of Users 
@@ -18,6 +23,7 @@ class UsersController < ApplicationController
     
   def create 
     @user = User.new(user_params)
+    #@user = current_user(user_params) #using devise
             
     if @user.save 
       #redirect_to action: "index", notice: "User was successfully created" # if we want to go straight to all users 

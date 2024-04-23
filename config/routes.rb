@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  #using devise to log in and sign up User.
+  devise_for :users, controllers: { 
+    registrations: "users/registrations" }
+
+  #using devise to log in and sign up Requester through user registration controller created by devise.
+  devise_for :requesters, controllers: { 
+    registrations: "users/registrations",
+    :type=>"Requester" }
 
   root "tickets#index"
   resources :users
