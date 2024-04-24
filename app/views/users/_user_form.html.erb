@@ -1,4 +1,4 @@
-<!--using devise to create our form-->
+<!--using simple form gem to create our form-->
 <%= simple_form_for @user, as: :user do |f|%> <!-- "as: :user" was add because the update wasn't working without it. Explanation https://stackoverflow.com/questions/45848373/actioncontrollerparametermissing-in-userscontrollerupdate-rails-->
     <div class="form-inputs"  >
         <%= f.input :name %>
@@ -9,7 +9,6 @@
         <%= f.hidden_field :type %> <!--This field must be here. The controller was getting type = nil without it-->
          <!--I put hiden_field because I"m setting the type into the controller-->
     </div>
-    <br>
     <div class="form-actions"  >
         <%= f.button :submit, class:"btn btn-primary" %>
         <%= link_to "Back", users_path, class: "btn btn-secondary"%>

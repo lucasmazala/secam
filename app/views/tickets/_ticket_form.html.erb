@@ -1,8 +1,14 @@
-<!--using devise to create our form-->
+<!--using simple form gem to create our form-->
 <%= simple_form_for @ticket do |f|%>
-    <div class="form-inputs" >
-        <!--%= f.input :requester.name %-->
-        <%= f.input :requester_id %>
+    <div class="form-inputs", class="form-group" >
+        <%if current_requester%>
+        <h4>Requester: <%= current_requester.name%></h4>
+        <%= f.hidden_field :requester_id, value: current_requester.id %>
+        <%elsif current_user%>
+         <h4>Requester: <%= current_user.name%></h4>
+         <%= f.hidden_field :requester_id, value: current_user.id %>
+         <%end%>
+
         <%= f.association :cooperators, as: :check_boxes, wrapper: :vertical_checkboxes%> <!--,  as: :check_boxes remember to call the plural name because the relationship many to many-->
         <br>
         <%= f.input :priority %>
@@ -18,10 +24,10 @@
         <%= f.input :service_evaluation %>
         <%= f.input :suggestions_complaints %>
     </div>
-    <br>
+    
     <div class="form-actions"  >
         <%= f.button :submit, class:"btn btn-primary" %>
         <%= link_to "Back", tickets_path, class:"btn btn-secondary"%>
+        <br><br><br>
     </div>   
-
 <%end%>
