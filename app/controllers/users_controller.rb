@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
   # https://stackoverflow.com/questions/65897519/rails-devise-authenticate-either-two-models
-  devise_group :user_requester, contains: [:user, :requester] # using group to authenticate two or more different models. Devise
-  before_action :authenticate_user_requester!   
+  devise_group :users_type, contains: [:user, :requester, :admin] # using group to authenticate two or more different models. Devise
+  before_action :authenticate_users_type!   
   
   
   def index

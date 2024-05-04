@@ -6,6 +6,14 @@
         <%= f.input :telephone %>
         <%= f.input :email %>
         <%= f.input :company %>
+        <%= f.input :password,
+                required: false,
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
+
         <%= f.hidden_field :type %> <!--This field must be here. The controller was getting type = nil without it-->
          <!--I put hiden_field because I"m setting the type into the controller-->
     </div>

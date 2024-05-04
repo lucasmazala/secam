@@ -8,14 +8,20 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     :type=>"Requester" }
 
+  devise_for :admins, controllers: { 
+  registrations: "users/registrations",
+  :type=>"Admin" }
+
   root "tickets#index"
   resources :users
   resources :tickets
+  resources :admins
 
   # We are using the users_controller for the cooperator and requester because we are using STI. 
   # This way we can use one controller for all subclass. 
   resources :cooperators, :controller => "users", :type => "Cooperator"
   resources :requesters, :controller => "users", :type => "Requester"
+  resources :admins, :controller => "users", :type => "Admin"
   #https://stackoverflow.com/questions/5246767/sti-one-controller?rq=3
   
   
