@@ -9,18 +9,21 @@
          <%= f.hidden_field :requester_id, value: current_user.id %>
          <%end%>
 
-        <%= f.association :cooperators, as: :check_boxes, wrapper: :vertical_checkboxes%> <!--,  as: :check_boxes remember to call the plural name because the relationship many to many-->
+        
         <br>
         <%= f.input :priority %>
         <%= f.input :execution_date %>
         <%= f.input :execution_place %>
         <%= f.input :execution_time %>
-        <%= f.input :registered_by %>
-        <%= f.input :ticket_purpose %>
-        <%= f.input :service_type %>        
-        <%= f.input :observation %>
-        <%= f.input :service_progress %>
-        <%= f.input :ticket_situation %>
+        <%if current_admin%>
+            <%= f.association :cooperators, as: :check_boxes, wrapper: :vertical_checkboxes%> <!--,  as: :check_boxes remember to call the plural name because the relationship many to many-->
+            <%= f.input :registered_by %>
+            <%= f.input :ticket_purpose %>
+            <%= f.input :service_type %>        
+            <%= f.input :observation %>
+            <%= f.input :service_progress %>
+            <%= f.input :ticket_situation %>
+        <%end%>
         <%= f.input :service_evaluation %>
         <%= f.input :suggestions_complaints %>
     </div>

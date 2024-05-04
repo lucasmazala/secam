@@ -7,7 +7,11 @@ class TicketsController < ApplicationController
   
   def index
     #@tickets = Ticket.all
-    @tickets =  Ticket.includes(:requester, :cooperators)
+    if current_admin
+      @tickets =  Ticket.includes(:requester, :cooperators)
+    else
+      @tickets =  Ticket.includes(:requester, :cooperators).where('requester_id=?', current_requester).references(:requesters) #Specify relationships to be included in the result set
+    end  
   end
 
   
