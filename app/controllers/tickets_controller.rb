@@ -10,7 +10,7 @@ class TicketsController < ApplicationController
     if current_admin
       @tickets =  Ticket.includes(:requester, :cooperators)
     else
-      @tickets =  Ticket.includes(:requester, :cooperators).where('requester_id=?', current_requester).references(:requesters) #Specify relationships to be included in the result set
+      @tickets =  Ticket.includes(:requester, :cooperators).where('requester_id=?', current_requester) #Specify relationships to be included in the result set
     end  
   end
 
@@ -31,7 +31,7 @@ class TicketsController < ApplicationController
     if @ticket.save 
       redirect_to @ticket, notice: "Ticket was successfully created"
     else 
-      render_to :new, status: :unprocessable_entity 
+      render :new, status: :unprocessable_entity 
     end
   end
 
@@ -46,7 +46,7 @@ class TicketsController < ApplicationController
     if @ticket.update(ticket_params) 
       redirect_to @ticket, notice: "Ticket was successfully updated" 
     else 
-      render_to :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end 
   end
 

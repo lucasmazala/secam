@@ -6,8 +6,12 @@ class UsersController < ApplicationController
   
   
   def index
-    @users = User.all #fethces all kinds of Users 
-    #@users = User.where(:type => params[:type]) #fetches all users of a specific type.  
+    if current_admin
+      @users = User.all #fethces all kinds of Users 
+  
+    else
+      @users = User.where('id=?', current_requester)#Shows only the logged requester
+    end  
   end
 
 

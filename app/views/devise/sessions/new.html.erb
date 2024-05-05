@@ -20,5 +20,6 @@
 <%= render "devise/shared/links" %>
 <%else%>
   <h3>You are already logged in</h3>
+  <%= link_to "Ticket", tickets_path, class:"btn btn-primary"%>
 <%end%>
 
