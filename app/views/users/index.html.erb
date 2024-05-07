@@ -14,18 +14,11 @@
     <%= link_to "Ticket", tickets_path, class:"btn btn-primary"%>
 
     <%=render"users_table", users: @users%> <!--first "users:" is sent to partial. Second"@user" is coming from the controller with the data-->
-    
-<%elsif current_user.type == ""%>
-    <%= link_to "Create a New User", new_user_path, class:"btn btn-primary"%>
-
-    <%= link_to "Create a New Requester", new_requester_path, class:"btn btn-primary"%>
-
-    <%= link_to "Create a New Cooperator", new_cooperator_path, class:"btn btn-primary"%>
-
-    <%= link_to "Ticket", tickets_path, class:"btn btn-primary"%>
-
-    <%=render"users_table", users: @users%> <!--first "users:" is sent to partial. Second"@user" is coming from the controller with the data-->
 <%else%>
-    <h1>You don't have permission<h1>
+    <div class="alert alert-danger alert-dismissible fade show " role="alert">
+        You don't have permission
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    
 <%end%>
 
