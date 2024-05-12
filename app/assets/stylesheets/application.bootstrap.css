@@ -1,0 +1,18 @@
+/* @import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons'; */  /*The import is commented because rails isn't finding these paths */
+
+
+/* .custom-tooltip { To configurate colors of a button - bootstrap 
+    --bs-tooltip-bg: var(--bd-violet-bg);
+    --bs-tooltip-color: var(--bd-violet-bg);
+  }   */
+
+/* Ctrl+K Ctrl+C Add line comment
+Ctrl+K Ctrl+U Remove line comment
+Ctrl+/ Toggle line comment
+Ctrl+Shift+A Toggle block comment */
+
+/* Used to limit the table's size on the screen. */
+#collapse1{
+  overflow-y:scroll;
+  height:490px;}

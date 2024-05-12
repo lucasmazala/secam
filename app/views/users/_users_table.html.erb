@@ -1,4 +1,5 @@
-<table class="table table-bordered table-dark table-hover caption-top">
+<div id="collapse1" class="table-responsive overflow-y: hidden">
+<table class="table table-responsive table-bordered table-dark table-hover caption-top overflow-y: hidden">
     <caption>List of users</caption>
     <thead>
         <tr>
@@ -15,19 +16,20 @@
     <tbody>
         <% users.each do |user|%>
             <tr>
-                <th><%= user.id%></th>
-                <th><%= link_to user.name, user%></th> <!--first argument is the text, second is the path-->
-                <th><%= user.coordination%></th>
-                <th><%= user.telephone%></th>
-                <th><%=user.email%></th>
-                <th><%= user.company%></th>
-                <th><%= user.type%></th>
-                <th><%= link_to "Destroy", user_path(user),
+                <td><%= user.id%></td>
+                <td><%= link_to user.name, user%></td> <!--first argument is the text, second is the path-->
+                <td><%= user.coordination%></td>
+                <td><%= user.telephone%></td>
+                <td><%=user.email%></td>
+                <td><%= user.company%></td>
+                <td><%= user.type%></td>
+                <td><%= link_to "Destroy", user_path(user),
     data: {
             turbo_method: :delete,
             turbo_confirm: "Are you sure?"
-    }, class: "btn btn-danger" %> </th>
+    }, class: "btn btn-danger" %> </td>
             </tr>
         <% end %>
     </tbody>
 </table>
+<div>

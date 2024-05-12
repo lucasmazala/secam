@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application.bootstrap.css", "data-turbo-track": "reload" %> <%# Using this to change out css %>
     <%= javascript_importmap_tags %>    
 
     
@@ -17,8 +18,8 @@
       <%= render 'layouts/account_links'%>
       <%= render 'layouts/flash_messages'%>
       <%= yield %>
-       
     </main>
+    <%= render 'layouts/footer'%>
   </body>
-  <%= render 'layouts/footer'%>
+ 
 </html>

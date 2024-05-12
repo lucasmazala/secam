@@ -1,3 +1,4 @@
+<div id="collapse1" class="table-responsive overflow-y: hidden">
 <table class="table table-bordered table-dark table-hover caption-top">
     <caption>List of Tickets</caption>
     <thead>
@@ -23,29 +24,31 @@
     <tbody>
         <% tickets.each do |ticket|%>
             <tr>
-                <th><%= link_to ticket.id, ticket%></th>
-                <th><%= ticket.requester.name%></th> 
-                <th><%= ticket.priority%></th>
-                <th><%= ticket.execution_date%></th>
-                <th><%=ticket.execution_place%></th>
-                <th><%= ticket.execution_time%></th>
-                <th><%= ticket.registered_by%></th>
-                <th><%= ticket.ticket_purpose%></th>
-                <th><%= ticket.service_type%></th>
-                <th><% ticket.cooperators.each do |cooperator|%> <!-- Another each to get the cooperators into the ticket-->
+                <td><%= link_to ticket.id, ticket%></td>
+                <td><%= ticket.requester.name%></td> 
+                <td><%= ticket.priority%></td>
+                <td><%= ticket.execution_date%></td>
+                <td><%=ticket.execution_place%></td>
+                <td><%= ticket.execution_time%></td>
+                <td><%= ticket.registered_by%></td>
+                <td><%= ticket.ticket_purpose%></td>
+                <td><%= ticket.service_type%></td>
+                <td><% ticket.cooperators.each do |cooperator|%> <!-- Another each to get the cooperators into the ticket-->
                     <%= cooperator.name%>
-                <%end%></th>
-                <th><%= ticket.observation%></th>
-                <th><%= ticket.service_progress%></th>
-                <th><%= ticket.ticket_situation%></th>
-                <th><%= ticket.service_evaluation%></th>
-                <th><%= ticket.suggestions_complaints%></th>
-                <th><%= link_to "Destroy", ticket_path(ticket),
-        data: {
-                turbo_method: :delete,
-                turbo_confirm: "Are you sure?"
-        }, class: "btn btn-danger" %> </th>
-                </tr>
-            <% end %>
+                <%end%></td>
+                <td><%= ticket.observation%></td>
+                <td><%= ticket.service_progress%></td>
+                <td><%= ticket.ticket_situation%></td>
+                <td><%= ticket.service_evaluation%></td>
+                <td><%= ticket.suggestions_complaints%></td>
+                <td><%= link_to "Destroy", ticket_path(ticket),
+                    data: {
+                            turbo_method: :delete,
+                            turbo_confirm: "Are you sure?"
+                    }, class: "btn btn-danger" %> 
+                </td>
+            </tr>
+        <% end %>
     </tbody>
 </table>
+</div>
